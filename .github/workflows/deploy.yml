@@ -37,7 +37,7 @@ jobs:
           push: true
           tags: saichandra31/flask-app:latest
 
-           security_scan:
+  security_scan:
     name: Security Scan with Trivy
     runs-on: self-hosted
     needs: build
