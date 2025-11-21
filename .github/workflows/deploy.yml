@@ -61,3 +61,19 @@ jobs:
       - name: Scan Docker Image with Trivy
         run: trivy image saichandra31/flask-app:latest
 
+  deploy:
+    name: Deploy on Ec2
+    runs-on: self-hosted
+    needs: security_scan
+
+    steps:
+      - name: Pull Latest Code
+        uses: actions/checkout@v4
+
+      - name: Deploy on EC2
+        run: |
+          sudo bash /home/ubuntu/deploy.sh
+
+
+
+
